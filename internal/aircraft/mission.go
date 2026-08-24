@@ -1,7 +1,6 @@
 package aircraft
 
 import (
-	"fmt"
 	"github.com/wyw14/cry-100/internal/model"
 	"github.com/wyw14/cry-100/internal/resource"
 	"sync"
@@ -30,9 +29,6 @@ func (s *Service) Create(mission model.Mission, revision model.PerimeterRevision
 func (s *Service) Cancel(mission model.Mission, at time.Time) error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
-	if _, ok := s.plans[mission.ID]; !ok {
-		return fmt.Errorf("flight plan not found")
-	}
 	delete(s.plans, mission.ID)
 	if mission.LeaseID != "" {
 		return s.resources.Release(mission.LeaseID, mission.ID, at)
