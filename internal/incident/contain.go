@@ -12,14 +12,14 @@ func Contain(s *Service, alerts *alert.Publisher, evidence *journal.EvidenceStor
 	if evidence == nil {
 		return fmt.Errorf("evidence store is required")
 	}
-	if err := s.Transition(proof.IncidentID, model.StageContained, now); err != nil {
-		return err
-	}
 	if err := evidence.Save(proof, image); err != nil {
 		return err
 	}
 	if !evidence.Has(proof) {
 		return fmt.Errorf("field proof is not durable")
+	}
+	if err := s.Transition(proof.IncidentID, model.StageContained, now); err != nil {
+		return err
 	}
 	if alerts != nil {
 		if err := alerts.Withdraw(proof.IncidentID); err != nil {
