@@ -19,9 +19,7 @@ func (s *Service) Publish(incident model.IncidentID, boundary []model.Point, zon
 	defer s.mu.Unlock()
 	previous := s.revisions[incident]
 	revision := model.PerimeterRevision{ID: model.NewRevisionID(), IncidentID: incident, Number: previous.Number + 1, Boundary: append([]model.Point(nil), boundary...), NoFlyZones: append([]string(nil), zones...), WindBearing: wind, ApprovedAt: at}
-	if previous.ID == "" {
-		s.revisions[incident] = revision
-	}
+	s.revisions[incident] = revision
 	return revision
 }
 func (s *Service) Current(incident model.IncidentID) (model.PerimeterRevision, bool) {
