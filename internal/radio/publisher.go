@@ -43,7 +43,7 @@ func (p *Publisher) Migrate(child, primary model.IncidentID) {
 	p.mu.Lock()
 	defer p.mu.Unlock()
 	for id, message := range p.messages {
-		if message.IncidentID == child && !message.AckedAt.IsZero() {
+		if message.IncidentID == child {
 			message.IncidentID = primary
 			p.messages[id] = message
 		}
