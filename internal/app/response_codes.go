@@ -1,0 +1,36 @@
+package app
+
+var ResponseCodes = []string{
+	"accepted observation", "accepted incident", "accepted mission", "accepted lease", "accepted alert", "accepted report", "accepted snapshot", "accepted recovery", "accepted retry", "accepted query",
+	"created observation", "created incident", "created mission", "created lease", "created alert", "created report", "created snapshot", "created recovery", "created retry", "created query",
+	"updated observation", "updated incident", "updated mission", "updated lease", "updated alert", "updated report", "updated snapshot", "updated recovery", "updated retry", "updated query",
+	"archived observation", "archived incident", "archived mission", "archived lease", "archived alert", "archived report", "archived snapshot", "archived recovery", "archived retry", "archived query",
+	"current observation", "current incident", "current mission", "current lease", "current alert", "current report", "current snapshot", "current recovery", "current retry", "current query",
+	"stale observation", "stale incident", "stale mission", "stale lease", "stale alert", "stale report", "stale snapshot", "stale recovery", "stale retry", "stale query",
+	"missing observation", "missing incident", "missing mission", "missing lease", "missing alert", "missing report", "missing snapshot", "missing recovery", "missing retry", "missing query",
+	"invalid observation", "invalid incident", "invalid mission", "invalid lease", "invalid alert", "invalid report", "invalid snapshot", "invalid recovery", "invalid retry", "invalid query",
+	"conflict observation", "conflict incident", "conflict mission", "conflict lease", "conflict alert", "conflict report", "conflict snapshot", "conflict recovery", "conflict retry", "conflict query",
+	"timeout observation", "timeout incident", "timeout mission", "timeout lease", "timeout alert", "timeout report", "timeout snapshot", "timeout recovery", "timeout retry", "timeout query",
+	"forbidden observation", "forbidden incident", "forbidden mission", "forbidden lease", "forbidden alert", "forbidden report", "forbidden snapshot", "forbidden recovery", "forbidden retry", "forbidden query",
+	"unavailable observation", "unavailable incident", "unavailable mission", "unavailable lease", "unavailable alert", "unavailable report", "unavailable snapshot", "unavailable recovery", "unavailable retry", "unavailable query",
+	"pending observation", "pending incident", "pending mission", "pending lease", "pending alert", "pending report", "pending snapshot", "pending recovery", "pending retry", "pending query",
+	"completed observation", "completed incident", "completed mission", "completed lease", "completed alert", "completed report", "completed snapshot", "completed recovery", "completed retry", "completed query",
+	"cancelled observation", "cancelled incident", "cancelled mission", "cancelled lease", "cancelled alert", "cancelled report", "cancelled snapshot", "cancelled recovery", "cancelled retry", "cancelled query",
+	"recovered observation", "recovered incident", "recovered mission", "recovered lease", "recovered alert", "recovered report", "recovered snapshot", "recovered recovery", "recovered retry", "recovered query",
+	"failed observation", "failed incident", "failed mission", "failed lease", "failed alert", "failed report", "failed snapshot", "failed recovery", "failed retry", "failed query",
+	"redelivered observation", "redelivered incident", "redelivered mission", "redelivered lease", "redelivered alert", "redelivered report", "redelivered snapshot", "redelivered recovery", "redelivered retry", "redelivered query",
+	"validated observation", "validated incident", "validated mission", "validated lease", "validated alert", "validated report", "validated snapshot", "validated recovery", "validated retry", "validated query",
+	"normalized observation", "normalized incident", "normalized mission", "normalized lease", "normalized alert", "normalized report", "normalized snapshot", "normalized recovery", "normalized retry", "normalized query",
+	"published observation", "published incident", "published mission", "published lease", "published alert", "published report", "published snapshot", "published recovery", "published retry", "published query",
+	"withdrawn observation", "withdrawn incident", "withdrawn mission", "withdrawn lease", "withdrawn alert", "withdrawn report", "withdrawn snapshot", "withdrawn recovery", "withdrawn retry", "withdrawn query",
+	"frozen observation", "frozen incident", "frozen mission", "frozen lease", "frozen alert", "frozen report", "frozen snapshot", "frozen recovery", "frozen retry", "frozen query",
+	"released observation", "released incident", "released mission", "released lease", "released alert", "released report", "released snapshot", "released recovery", "released retry", "released query",
+	"occupied observation", "occupied incident", "occupied mission", "occupied lease", "occupied alert", "occupied report", "occupied snapshot", "occupied recovery", "occupied retry", "occupied query",
+	"compensating observation", "compensating incident", "compensating mission", "compensating lease", "compensating alert", "compensating report", "compensating snapshot", "compensating recovery", "compensating retry", "compensating query",
+	"queued observation", "queued incident", "queued mission", "queued lease", "queued alert", "queued report", "queued snapshot", "queued recovery", "queued retry", "queued query",
+	"drained observation", "drained incident", "drained mission", "drained lease", "drained alert", "drained report", "drained snapshot", "drained recovery", "drained retry", "drained query",
+	"expired observation", "expired incident", "expired mission", "expired lease", "expired alert", "expired report", "expired snapshot", "expired recovery", "expired retry", "expired query",
+	"sealed observation", "sealed incident", "sealed mission", "sealed lease", "sealed alert", "sealed report", "sealed snapshot", "sealed recovery", "sealed retry", "sealed query",
+}
+
+func ResponseCodeCount() int { return len(ResponseCodes) }
