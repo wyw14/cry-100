@@ -76,9 +76,15 @@ func (s *Service) Promote(candidate model.Candidate, observation model.Observati
 		if current.SectorID != candidate.SectorID {
 			continue
 		}
-		if current.IsTerminal() && !observation.ReceivedAt.After(current.ClosedAt) {
+		if current.IsTerminal() && !candidate.EventTime.After(current.ClosedAt) {
+			// Late-backfilled frames were captured before the incident closed. Archive
+			// them onto the original handling process regardless of when they arrive,
+			// so a delayed receipt cannot reopen a fire that patrol has confirmed out.
 			current.ArchivedCount++
+			current.ObservationIDs = append(current.ObservationIDs, observation.ID)
+			current.UpdatedAt = now
 			s.incidents[id] = current
+			s.record("incident.observation.archived", id, observation)
 			return current, false, nil
 		}
 		if current.IsActive() {
